@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-slate-200">
+    <a href="{{ url_for('home' ) }}">home</a>
+<div class="flex w-[100%] items-center justify-center ">
+
+    <form method="POST" enctype="multipart/form-data" class="form flex flex-col rounded-xl bg-cyan-800 gap-3 w-[30%] items-center mt-[3%]">
+        <h2 class="text-slate-100 font-semibold pt-3 text-2xl">Welcome to Pythora!</h2>
+        <h2 class="text-slate-200 ">Please sign up your information.</h2>
+        <input type="text" placeholder="enter username:" required name="username" class="p-3 border-1 outline-none border-slate-200 m-[2vh] rounded-xl text-slate-100 w-[85%]">
+        <input type="text" placeholder="enter email:" name="email" class="p-3 border-1 border-slate-200 outline-none m-[2vh] rounded-xl text-slate-100 w-[85%]">
+        <input type="password" required placeholder="enter password:" name="password" class="p-3 border-1 outline-none border-slate-200 m-[2vh] rounded-xl text-slate-100 w-[85%]">
+        <input type="password" required placeholder="repeat password:" name="confirm" class="p-3 border-1 outline-none border-slate-200 m-[2vh] rounded-xl text-slate-100 w-[85%]">
+        <input type="text" required placeholder="what is your first pet name?" name="secQ" class="p-3 border-1 outline-none border-slate-200 m-[2vh] rounded-xl text-slate-100 w-[85%]">
+        <input type="file" name="image" class="bg-gray-400 rounded-xl p-2 m-[2vh] w-[85%] cursor-pointer hover:bg-rose-200">
+        
+        <button type="submit" class="mb-[4vh] bg-rose-200 hover:bg-rose-300 cursor-pointer rounded-xl p-2 w-[85%]">Register</button>
+    </form>
+</div>
+
+</body>
+</html>

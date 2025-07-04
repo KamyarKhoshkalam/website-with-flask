@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editing</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <a href="{{ url_for('home' ) }}">home</a>
+    <div class="flex items-center justify-center">
+    <form method="POST" enctype="multipart/form-data" class=" flex flex-col p-5 gap-4 border-4 border-cyan-800 m-6 rounded-2xl bg-rose-50 w-[45%] max-[950px]:w-[70%]">
+        <h1 class="font-bold text-2xl">{{user[1]}}</h1>
+        <label for="password" class="font-semibold">password:</label>
+        <input type="text" class="outline-none border-3 border-rose-50 border-b-cyan-800 text-cyan-900" value="{{user[3]}}" name="password">
+        <label for="email" class="font-semibold">email:</label>
+        <input type="email" class="border-3 border-rose-50 border-b-cyan-800 outline-none text-cyan-900" value="{{user[2]}}" name="email">
+        <img src="{{url_for('uploaded_file',filename = user[4]|basename )}}" class="flex w-[20vh] rounded-3xl" alt="">
+        <label for="image" class="font-semibold">profile picture:</label>
+        <input type="file" name="image" class="bg-rose-300 p-2 rounded-lg cursor-pointer text-cyan-900 hover:bg-cyan-800 hover:text-slate-100 w-[40%] max-[950px]:w-[100%]">
+        <button type="submit" class="bg-cyan-800 rounded-lg p-2 w-[40%] text-slate-100 cursor-pointer hover:bg-rose-300 max-[950px]:w-[100%]">Submit</button>
+    </form>
+    </div>
+
+</body>
+</html>
+

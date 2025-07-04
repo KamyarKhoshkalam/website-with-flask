@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="bg-cyan-800 flex w-[100%] justify-between p-4 gap-2">
+        <h1 class="font-bold italic text-2xl text-slate-50">Pythora</h1>
+
+        <form method="POST" class="flex gap-2 ">
+        <input type="text" name="searchcourse" class="border-1 outline-none rounded-3xl border-1 border-slate-200 text-slate-100 w-[100%] p-2" placeholder="search for anything..." >
+        <button type="submit" class="flex bg-slate-100 p-2 cursor-pointer rounded-2xl hover:bg-rose-200 text-cyan-900 items-center justify-center">search</button>
+         </form>
+         
+        {% if not logged_in and not admin_logged_in %}
+            <div class="flex gap-4">
+                <a href="{{url_for('login')}}" class="border-1 border-rose-200 rounded-lg items-center justify-center flex p-3 text-rose-200 cursor-pointer hover:bg-cyan-700">Login</a>
+                <a href="{{url_for('signup')}}" class="bg-rose-200 rounded-lg items-center justify-center flex p-3 text-cyan-900 cursor-pointer hover:bg-rose-300">Sign Up</a>
+            </div>
+        {% elif logged_in%}
+        <a href="{{url_for('user',username=user_info['name'])}}" class="bg-rose-200 p-2 rounded-xl font-semibold hover:bg-rose-300">{{user_info["name"]}}</a>
+        {% elif admin_logged_in %}
+        <a href="{{url_for('admin')}}" class="bg-rose-200 p-2 rounded-xl font-semibold hover:bg-rose-300">Admin panel</a>
+        {% endif %}
+        
+    </div>
+
+
+
+    <div class="flex flex-col p-8">
+        <h2 class="font-semibold text-3xl gap-2 mb-[1vh]">Ready to level up your future?</h2>
+        <span class="text-xl text-stone-500">Gain in-demand skills and hands-on experience with Career Accelerators.</span>
+        <span class="text-xl text-stone-500">Whether its core skills or cutting-edge tech, Pythora helps drive your professional growth.</span>
+    </div>
+
+
+    
+    {% for i in range(0,courses|length,3) %}
+    <div class="flex gap-5 justify-center p-7 mt-[2vh] max-[900px]:flex-col max-[900px]:items-center">
+        {% for course in courses[i:i+3] %}
+        <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl max-[950px]:w-[90%] ">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('uploaded_file',filename = course[3]|basename )}}" alt="machine learning" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">{{course[1]|title}}</h3>
+        <span>{{course[2]}}</span>
+        <a href="{{ url_for('course_info',coursename=course[1] ) }}"><button class=" items-center justify-center bg-cyan-800 max-[900px]:w-[100%] rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button></a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+
+    <!-- ----------------footer------------------ -->
+
+    <div class="flex justify-between p-5 items-center bg-slate-100 w-[100%]">
+        <h2 class="font-semibold italic text-lg">Pythora</h2>
+        <span class="text-cyan-900">Made with ❤</span>
+    </div>
+</body>
+</html>

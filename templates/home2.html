@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    
+    <div class="bg-cyan-800 flex w-[100%] justify-between p-3 gap-2">
+        <h1 class="font-bold italic text-2xl text-slate-50">Pythora</h1>
+        <input type="text" name="searchcourse" class="border-1 outline-none rounded-3xl border-1 border-slate-200 text-slate-100 w-[40%] p-2" placeholder="search for anything...">
+        {% if not logged_in and not admin_logged_in %}
+            <div class="flex gap-4">
+                <a href="{{url_for('login')}}" class="border-1 border-rose-200 rounded-lg items-center justify-center flex p-3 text-rose-200 cursor-pointer hover:bg-cyan-700">Login</a>
+                <a href="{{url_for('signup')}}" class="bg-rose-200 rounded-lg items-center justify-center flex p-3 text-cyan-900 cursor-pointer hover:bg-rose-300">Sign Up</a>
+            </div>
+        {% elif admin_logged_in %}
+        <a href="{{url_for('admin')}}">admin panel</a>
+        {% endif %}
+        
+    </div>
+
+
+
+    <div class="flex flex-col p-8">
+        <h2 class="font-semibold text-3xl gap-2 mb-[1vh]">Ready to level up your future?</h2>
+        <span class="text-xl text-stone-500">Gain in-demand skills and hands-on experience with Career Accelerators.</span>
+        <span class="text-xl text-stone-500">Whether its core skills or cutting-edge tech, Pythora helps drive your professional growth.</span>
+    </div>
+
+
+   <!-- ---------------------apps-----------------  -->
+
+
+<div class="flex gap-5 justify-center p-7 mt-[2vh]">
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static', filename='images/swift.png')}}" alt="swift" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">Swift</h3>
+        <span>Swift is Apple’s powerful and easy-to-learn programming language used to build apps for iOS, macOS, and more. In this tutorial video, you’ll learn the basics of Swift—from simple variables to functions and control flow. Whether you're just starting out or looking to sharpen your skills, this is a great place to begin your journey into app development.</span>
+        <button type="submit" class=" items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static', filename='images/data-science.avif')}}" alt="machine learning" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">Machine Learning</h3>
+        <span>Machine learning is transforming the way we solve problems-powering everything from recommendation systems to self-driving cars. In this tutorial video, you'll explore the fundamentals of machine learning, including key concepts like algorithms, training data, and model evaluation. It's the perfect starting point for anyone curious about how machines learn from data.</span>
+        <button type="submit" class=" items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static', filename='images/cursos-de-Python.jpg')}}" alt="python" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">Python</h3>
+        <span>Python is one of the most popular and versatile programming languages today—used in web development, automation, data analysis, and more. In this tutorial video, we’ll guide you through the fundamentals of Python, including variables, loops, functions, and basic syntax. Whether you're completely new to coding or just new to Python, this is a great place to start building your skills.</span>
+        <button type="submit" class=" items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+</div>
+
+<div class="flex gap-5 justify-center p-7">
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static', filename='images/c##.webp')}}" alt="c#" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">C#</h3>
+        <span>C# is a powerful, modern programming language developed by Microsoft—commonly used for building Windows applications, games with Unity, and enterprise software. In this tutorial, you'll learn the basics of C#, including variables, control structures, and object-oriented programming. It's a great starting point for anyone new to coding or looking to explore the Microsoft development ecosystem.</span>
+        <button type="submit" class="flex items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static',filename='images/nlp.png')}}" alt="NLP" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">NLP</h3>
+        <span>Natural Language Processing (NLP) is a field of AI focused on enabling machines to understand and process human language. In this tutorial, we'll cover the basics of NLP, from text preprocessing to key techniques like sentiment analysis and text classification. Whether you're new to AI or looking to dive deeper into language technologies, this tutorial will help you get started with NLP.</span>
+        <button type="submit" class="flex items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static',filename='images/Is-JavaScript-Used.avif')}}" alt="JS" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">Java Script</h3>
+        <span>JavaScript is a versatile and essential programming language used for building interactive websites and web applications. In this tutorial, you'll learn the basics of JavaScript, including variables, functions, and control flow, as well as how to manipulate the web page with DOM manipulation. Whether you're new to coding or just starting with web development, this tutorial will give you a strong foundation in JavaScript.</span>
+        <button type="submit" class="flex items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    
+</div>
+
+<div class="flex gap-5 justify-center p-7">
+   
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static',filename='images/react-js.jpg')}}" alt="react-js" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">React JS</h3>
+        <span>React JS is a popular JavaScript library for building fast, interactive user interfaces—especially for web applications. In this tutorial, we’ll cover the core concepts of React, including components, props, state, and hooks. Whether you're new to front-end development or ready to upgrade your skills, this is the perfect place to start with React.</span>
+        <button type="submit" class="flex items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static',filename='images/mysql.png')}}" alt="MySQL" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">MySQL</h3>
+        <span>MySQL is one of the most popular relational database management systems used to store and manage data for applications. In this tutorial, you'll learn the basics of MySQL, including how to create databases, write queries, and manage tables and relationships. Whether you're new to databases or looking to sharpen your SQL skills, this tutorial will help you get started with MySQL.</span>
+        <button type="submit" class="flex items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+    <div class="flex flex-col bg-rose-50 w-[30%] p-4 border-3 border-cyan-800 rounded-3xl">
+        <div class="flex h-[33vh]">
+            <img src="{{url_for('static',filename='images/nodejs_cover_photo_smaller_size.webp')}}" alt="Node js" class="rounded-2xl">
+        </div>
+        <h3 class="font-semibold text-xl mb-[1vh] mt-[1vh]">Node JS</h3>
+        <span>Node.js is a powerful JavaScript runtime that allows you to build fast, scalable server-side applications. In this tutorial, you'll learn the fundamentals of Node.js, including how to set up a server, work with modules, and handle requests and responses. Whether you're new to back-end development or looking to expand your JavaScript skills, this tutorial will guide you through the essentials of Node.js.</span>
+        <button type="submit" class="flex items-center justify-center bg-cyan-800 rounded-xl p-2 text-rose-50 mt-[2vh] cursor-pointer hover:bg-cyan-700">learn now</button>
+    </div>
+
+</div>
+
+
+<!-- ----------------footer------------------ -->
+
+<div class="flex justify-between p-5 items-center bg-stone-100 w-[100%]">
+    <h2 class="font-semibold italic text-lg">Pythora</h2>
+    <span class="text-cyan-900">Made with ❤</span>
+</div>
+
+
+</body>
+</html>

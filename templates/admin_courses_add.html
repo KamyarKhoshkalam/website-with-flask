@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin adding</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-200">
+    <a href="{{ url_for('home' ) }}">home</a>
+    <div class="flex justify-around items-center mt-[7%]">
+    <form method="POST" enctype="multipart/form-data" class="flex flex-col max-[950px]:w-[90%] max-[950px]:gap-4 w-[30%] bg-rose-50 outline-none p-4 border-3 border-cyan-800 rounded-2xl gap-2">
+        <label for="title" class="font-semibold border-3 border-rose-50 border-l-rose-300  p-3">title: </label>
+        <input type="text" name="title" class="border-2 border-cyan-800 rounded-2xl p-2">
+        <label for="description" class="font-semibold border-3 border-rose-50 border-l-rose-300  p-3">description: </label>
+        <input type="text" name="description" class="border-2 border-cyan-800 rounded-2xl p-2">
+        <label for="image" class="font-semibold border-3 border-rose-50 border-l-rose-300  p-3">image: </label>
+        <input type="file" name="image" class="bg-cyan-800 rounded-lg p-2 w-[40%] text-slate-100 cursor-pointer hover:bg-cyan-700 max-[950px]:w-[100%]">
+        <button type="submit" class="bg-cyan-800 rounded-lg p-2 w-[40%] text-slate-100 cursor-pointer hover:bg-cyan-700 max-[950px]:w-[100%]">submit</button>
+    </form>
+</div>
+
+</body>
+</html>
